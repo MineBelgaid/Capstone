@@ -1,0 +1,192 @@
+{
+  "scenario_id": "CUR-10-large-mixed",
+  "intent": "Larger 12-person team with a realistic mix: a blocker, an overdue task, and scope creep.",
+  "today": "2026-06-22",
+  "team_size": 12,
+  "team": [
+    "Ava",
+    "Ben",
+    "Carla",
+    "Dmitri",
+    "Elena",
+    "Farid",
+    "Grace",
+    "Hassan",
+    "Ines",
+    "Jonas",
+    "Kira",
+    "Leo"
+  ],
+  "sprint": "CUR-10-large-mixed",
+  "sprint_start": "2026-06-15",
+  "sprint_end": "2026-06-29",
+  "tasks": [
+    {
+      "task_id": "CUR-10-large-mixed-T01",
+      "title": "SSO integration",
+      "status": "blocked",
+      "assignee": "Kira",
+      "story_points": 8.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-10-large-mixed",
+      "labels": [
+        "bug"
+      ],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-10-large-mixed-T02",
+      "title": "Migration scripts",
+      "status": "in_progress",
+      "assignee": "Leo",
+      "story_points": 5.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-20",
+      "sprint": "CUR-10-large-mixed",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-10-large-mixed-T03",
+      "title": "Unplanned: exec demo request",
+      "status": "todo",
+      "assignee": "Mara",
+      "story_points": 5.0,
+      "created_at": "2026-06-21",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-10-large-mixed",
+      "labels": [
+        "scope-creep"
+      ],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-10-large-mixed-T04",
+      "title": "Module 1",
+      "status": "done",
+      "assignee": "Ava",
+      "story_points": 3.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-20",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-10-large-mixed",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-10-large-mixed-T05",
+      "title": "Module 2",
+      "status": "done",
+      "assignee": "Ben",
+      "story_points": 3.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-20",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-10-large-mixed",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-10-large-mixed-T06",
+      "title": "Module 3",
+      "status": "done",
+      "assignee": "Carla",
+      "story_points": 3.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-20",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-10-large-mixed",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-10-large-mixed-T07",
+      "title": "Module 4",
+      "status": "done",
+      "assignee": "Dmitri",
+      "story_points": 3.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-20",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-10-large-mixed",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-10-large-mixed-T08",
+      "title": "Module 5",
+      "status": "done",
+      "assignee": "Elena",
+      "story_points": 3.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-20",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-10-large-mixed",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-10-large-mixed-T09",
+      "title": "Module 6",
+      "status": "done",
+      "assignee": "Farid",
+      "story_points": 3.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-20",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-10-large-mixed",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-10-large-mixed-T10",
+      "title": "Polish pass",
+      "status": "in_progress",
+      "assignee": "Grace",
+      "story_points": 3.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-10-large-mixed",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-10-large-mixed-T11",
+      "title": "Docs",
+      "status": "todo",
+      "assignee": "Hassan",
+      "story_points": 2.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-10-large-mixed",
+      "labels": [],
+      "source_system": "curated"
+    }
+  ],
+  "meeting_note": "",
+  "ground_truth": {
+    "risky_tasks": [
+      {
+        "task_id": "CUR-10-large-mixed-T01",
+        "reason": "blocked"
+      },
+      {
+        "task_id": "CUR-10-large-mixed-T02",
+        "reason": "overdue"
+      }
+    ],
+    "expected_kpis": {
+      "velocity": 18.0,
+      "completed_tasks": 6,
+      "total_tasks": 11,
+      "completion_rate": 0.5455
+    },
+    "action_items": []
+  }
+}

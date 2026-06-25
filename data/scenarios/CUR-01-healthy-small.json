@@ -1,0 +1,92 @@
+{
+  "scenario_id": "CUR-01-healthy-small",
+  "intent": "Negative control: a healthy 3-person sprint with no risks. Verifies the detector does not cry wolf.",
+  "today": "2026-06-22",
+  "team_size": 3,
+  "team": [
+    "Ava",
+    "Ben",
+    "Carla"
+  ],
+  "sprint": "CUR-01-healthy-small",
+  "sprint_start": "2026-06-15",
+  "sprint_end": "2026-06-29",
+  "tasks": [
+    {
+      "task_id": "CUR-01-healthy-small-T01",
+      "title": "Set up CI",
+      "status": "done",
+      "assignee": "Ava",
+      "story_points": 3.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-20",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-01-healthy-small",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-01-healthy-small-T02",
+      "title": "Auth scaffolding",
+      "status": "done",
+      "assignee": "Ben",
+      "story_points": 5.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-20",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-01-healthy-small",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-01-healthy-small-T03",
+      "title": "Login UI",
+      "status": "in_progress",
+      "assignee": "Carla",
+      "story_points": 3.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-01-healthy-small",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-01-healthy-small-T04",
+      "title": "API contract",
+      "status": "in_progress",
+      "assignee": "Ava",
+      "story_points": 2.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-01-healthy-small",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-01-healthy-small-T05",
+      "title": "Unit tests",
+      "status": "todo",
+      "assignee": "Ben",
+      "story_points": 2.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-01-healthy-small",
+      "labels": [],
+      "source_system": "curated"
+    }
+  ],
+  "meeting_note": "",
+  "ground_truth": {
+    "risky_tasks": [],
+    "expected_kpis": {
+      "velocity": 8.0,
+      "completed_tasks": 2,
+      "total_tasks": 5,
+      "completion_rate": 0.4
+    },
+    "action_items": []
+  }
+}

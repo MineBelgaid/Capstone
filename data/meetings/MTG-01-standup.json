@@ -1,0 +1,23 @@
+{
+  "scenario_id": "MTG-01-standup",
+  "attendees": [
+    "Ava",
+    "Ben",
+    "Carla"
+  ],
+  "meeting_note": "Date: 2026-06-22\nDaily standup.\nAttendees: Ava, Ben, Carla.\n\n- Ava finished the login flow and will write the integration tests by 2026-06-24.\n- Ben is blocked on the payment vendor; Carla will email the vendor for API access by 2026-06-23.\n- We agreed to demo the checkout flow on Friday.\n",
+  "ground_truth": {
+    "action_items": [
+      {
+        "description": "Write integration tests for the login flow",
+        "owner": "Ava",
+        "deadline": "2026-06-24"
+      },
+      {
+        "description": "Email the payment vendor for API access",
+        "owner": "Carla",
+        "deadline": "2026-06-23"
+      }
+    ]
+  }
+}

@@ -1,0 +1,257 @@
+{
+  "scenarios": 24,
+  "kpi_schema_validity": 1.0,
+  "kpi_numeric_accuracy": 1.0,
+  "risk_precision_mean": 0.481,
+  "risk_recall_mean": 0.9604,
+  "max_workflow_seconds": 0.001,
+  "mean_workflow_seconds": 0.0,
+  "pass": {
+    "kpi_schema_validity": true,
+    "kpi_numeric_accuracy": true,
+    "risk_precision": false,
+    "workflow_time": true
+  },
+  "per_scenario": [
+    {
+      "scenario_id": "Sprint-01",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 0.1111,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "Sprint-02",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 0.6667,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "Sprint-03",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 0.4286,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "Sprint-04",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 0.0,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "Sprint-05",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 0.4545,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "Sprint-06",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 0.3333,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.001,
+      "notes": []
+    },
+    {
+      "scenario_id": "Sprint-07",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 0.25,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "Sprint-08",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 0.6667,
+      "risk_recall": 0.8,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "Sprint-09",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 1.0,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "Sprint-10",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 0.3,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "Sprint-11",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 1.0,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "Sprint-12",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 0.2857,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "Sprint-13",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 0.6667,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "Sprint-14",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 0.6667,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "Sprint-15",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 0.1667,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "Sprint-16",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 0.2778,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "Sprint-17",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 1.0,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "Sprint-18",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 0.5,
+      "risk_recall": 0.25,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "Sprint-19",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 0.3333,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "Sprint-20",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 1.0,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "Sprint-21",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 0.2,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "Sprint-22",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 0.0,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "Sprint-23",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 0.2353,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "Sprint-24",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 1.0,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    }
+  ]
+}

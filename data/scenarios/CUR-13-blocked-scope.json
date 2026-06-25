@@ -1,0 +1,119 @@
+{
+  "scenario_id": "CUR-13-blocked-scope",
+  "intent": "Combo: a blocker plus mid-sprint scope creep on a 6-person team.",
+  "today": "2026-06-22",
+  "team_size": 6,
+  "team": [
+    "Ava",
+    "Ben",
+    "Carla",
+    "Dmitri",
+    "Elena",
+    "Farid"
+  ],
+  "sprint": "CUR-13-blocked-scope",
+  "sprint_start": "2026-06-15",
+  "sprint_end": "2026-06-29",
+  "tasks": [
+    {
+      "task_id": "CUR-13-blocked-scope-T01",
+      "title": "Vendor API access",
+      "status": "blocked",
+      "assignee": "Farid",
+      "story_points": 8.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-13-blocked-scope",
+      "labels": [
+        "bug"
+      ],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-13-blocked-scope-T02",
+      "title": "Unplanned: security finding",
+      "status": "todo",
+      "assignee": "Ava",
+      "story_points": 5.0,
+      "created_at": "2026-06-21",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-13-blocked-scope",
+      "labels": [
+        "scope-creep"
+      ],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-13-blocked-scope-T03",
+      "title": "Unplanned: urgent bugfix",
+      "status": "todo",
+      "assignee": "Ben",
+      "story_points": 3.0,
+      "created_at": "2026-06-21",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-13-blocked-scope",
+      "labels": [
+        "scope-creep"
+      ],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-13-blocked-scope-T04",
+      "title": "Baseline feature",
+      "status": "done",
+      "assignee": "Carla",
+      "story_points": 5.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-20",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-13-blocked-scope",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-13-blocked-scope-T05",
+      "title": "Refactor",
+      "status": "in_progress",
+      "assignee": "Dmitri",
+      "story_points": 3.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-13-blocked-scope",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-13-blocked-scope-T06",
+      "title": "Tests",
+      "status": "todo",
+      "assignee": "Elena",
+      "story_points": 2.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-13-blocked-scope",
+      "labels": [],
+      "source_system": "curated"
+    }
+  ],
+  "meeting_note": "",
+  "ground_truth": {
+    "risky_tasks": [
+      {
+        "task_id": "CUR-13-blocked-scope-T01",
+        "reason": "blocked"
+      }
+    ],
+    "expected_kpis": {
+      "velocity": 5.0,
+      "completed_tasks": 1,
+      "total_tasks": 6,
+      "completion_rate": 0.1667
+    },
+    "action_items": []
+  }
+}

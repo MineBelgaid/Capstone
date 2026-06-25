@@ -1,0 +1,121 @@
+{
+  "scenario_id": "CUR-05-deadline-slip-severe",
+  "intent": "Multiple overdue tasks: the 'simulated delays' the risk-precision target is about.",
+  "today": "2026-06-22",
+  "team_size": 6,
+  "team": [
+    "Ava",
+    "Ben",
+    "Carla",
+    "Dmitri",
+    "Elena",
+    "Farid"
+  ],
+  "sprint": "CUR-05-deadline-slip-severe",
+  "sprint_start": "2026-06-15",
+  "sprint_end": "2026-06-29",
+  "tasks": [
+    {
+      "task_id": "CUR-05-deadline-slip-severe-T01",
+      "title": "Search backend",
+      "status": "in_progress",
+      "assignee": "Elena",
+      "story_points": 8.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-19",
+      "sprint": "CUR-05-deadline-slip-severe",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-05-deadline-slip-severe-T02",
+      "title": "Cache layer",
+      "status": "in_progress",
+      "assignee": "Farid",
+      "story_points": 5.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-21",
+      "sprint": "CUR-05-deadline-slip-severe",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-05-deadline-slip-severe-T03",
+      "title": "Rate limiting",
+      "status": "in_progress",
+      "assignee": "Ben",
+      "story_points": 3.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-20",
+      "sprint": "CUR-05-deadline-slip-severe",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-05-deadline-slip-severe-T04",
+      "title": "Health checks",
+      "status": "done",
+      "assignee": "Ava",
+      "story_points": 2.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-20",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-05-deadline-slip-severe",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-05-deadline-slip-severe-T05",
+      "title": "Dashboard",
+      "status": "in_progress",
+      "assignee": "Carla",
+      "story_points": 5.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-05-deadline-slip-severe",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-05-deadline-slip-severe-T06",
+      "title": "Onboarding",
+      "status": "todo",
+      "assignee": "Dmitri",
+      "story_points": 3.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-05-deadline-slip-severe",
+      "labels": [],
+      "source_system": "curated"
+    }
+  ],
+  "meeting_note": "",
+  "ground_truth": {
+    "risky_tasks": [
+      {
+        "task_id": "CUR-05-deadline-slip-severe-T01",
+        "reason": "overdue"
+      },
+      {
+        "task_id": "CUR-05-deadline-slip-severe-T02",
+        "reason": "overdue"
+      },
+      {
+        "task_id": "CUR-05-deadline-slip-severe-T03",
+        "reason": "overdue"
+      }
+    ],
+    "expected_kpis": {
+      "velocity": 2.0,
+      "completed_tasks": 1,
+      "total_tasks": 6,
+      "completion_rate": 0.1667
+    },
+    "action_items": []
+  }
+}

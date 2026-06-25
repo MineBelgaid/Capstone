@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# Local data / generated artifacts
+data/chroma/
+data/app.db
+data/synthetic/*.json
+!data/synthetic/.gitkeep
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+
+# LangSmith / secrets
+.langsmith/

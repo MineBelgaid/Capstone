@@ -1,0 +1,137 @@
+{
+  "scenario_id": "CUR-08-absentee-deadline",
+  "intent": "Combo: an absentee's stale work is ALSO overdue -- compounded risk on a 7-person team.",
+  "today": "2026-06-22",
+  "team_size": 7,
+  "team": [
+    "Ava",
+    "Ben",
+    "Carla",
+    "Dmitri",
+    "Elena",
+    "Farid",
+    "Grace"
+  ],
+  "sprint": "CUR-08-absentee-deadline",
+  "sprint_start": "2026-06-15",
+  "sprint_end": "2026-06-29",
+  "tasks": [
+    {
+      "task_id": "CUR-08-absentee-deadline-T01",
+      "title": "Billing reconciliation",
+      "status": "in_progress",
+      "assignee": "Grace",
+      "story_points": 8.0,
+      "created_at": "2026-06-09",
+      "updated_at": "2026-06-14",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-08-absentee-deadline",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-08-absentee-deadline-T02",
+      "title": "Invoice export",
+      "status": "in_progress",
+      "assignee": "Grace",
+      "story_points": 5.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-20",
+      "sprint": "CUR-08-absentee-deadline",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-08-absentee-deadline-T03",
+      "title": "Tax rules engine",
+      "status": "blocked",
+      "assignee": "Ben",
+      "story_points": 5.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-08-absentee-deadline",
+      "labels": [
+        "bug"
+      ],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-08-absentee-deadline-T04",
+      "title": "Currency support",
+      "status": "done",
+      "assignee": "Ava",
+      "story_points": 3.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-20",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-08-absentee-deadline",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-08-absentee-deadline-T05",
+      "title": "Refunds",
+      "status": "in_progress",
+      "assignee": "Carla",
+      "story_points": 5.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-08-absentee-deadline",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-08-absentee-deadline-T06",
+      "title": "Audit log",
+      "status": "todo",
+      "assignee": "Dmitri",
+      "story_points": 2.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-08-absentee-deadline",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-08-absentee-deadline-T07",
+      "title": "Reports",
+      "status": "in_progress",
+      "assignee": "Elena",
+      "story_points": 3.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-08-absentee-deadline",
+      "labels": [],
+      "source_system": "curated"
+    }
+  ],
+  "meeting_note": "",
+  "ground_truth": {
+    "risky_tasks": [
+      {
+        "task_id": "CUR-08-absentee-deadline-T01",
+        "reason": "stale"
+      },
+      {
+        "task_id": "CUR-08-absentee-deadline-T02",
+        "reason": "overdue"
+      },
+      {
+        "task_id": "CUR-08-absentee-deadline-T03",
+        "reason": "blocked"
+      }
+    ],
+    "expected_kpis": {
+      "velocity": 3.0,
+      "completed_tasks": 1,
+      "total_tasks": 7,
+      "completion_rate": 0.1429
+    },
+    "action_items": []
+  }
+}

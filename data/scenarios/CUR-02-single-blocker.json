@@ -1,0 +1,100 @@
+{
+  "scenario_id": "CUR-02-single-blocker",
+  "intent": "One hard-blocked task in an otherwise healthy 4-person sprint.",
+  "today": "2026-06-22",
+  "team_size": 4,
+  "team": [
+    "Ava",
+    "Ben",
+    "Carla",
+    "Dmitri"
+  ],
+  "sprint": "CUR-02-single-blocker",
+  "sprint_start": "2026-06-15",
+  "sprint_end": "2026-06-29",
+  "tasks": [
+    {
+      "task_id": "CUR-02-single-blocker-T01",
+      "title": "Payment model",
+      "status": "done",
+      "assignee": "Dmitri",
+      "story_points": 5.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-20",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-02-single-blocker",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-02-single-blocker-T02",
+      "title": "Checkout flow",
+      "status": "in_progress",
+      "assignee": "Ava",
+      "story_points": 5.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-02-single-blocker",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-02-single-blocker-T03",
+      "title": "3rd-party payment integration",
+      "status": "blocked",
+      "assignee": "Ben",
+      "story_points": 8.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-02-single-blocker",
+      "labels": [
+        "bug"
+      ],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-02-single-blocker-T04",
+      "title": "Receipts email",
+      "status": "todo",
+      "assignee": "Carla",
+      "story_points": 3.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-02-single-blocker",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-02-single-blocker-T05",
+      "title": "Pricing config",
+      "status": "done",
+      "assignee": "Ava",
+      "story_points": 2.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-20",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-02-single-blocker",
+      "labels": [],
+      "source_system": "curated"
+    }
+  ],
+  "meeting_note": "",
+  "ground_truth": {
+    "risky_tasks": [
+      {
+        "task_id": "CUR-02-single-blocker-T03",
+        "reason": "blocked"
+      }
+    ],
+    "expected_kpis": {
+      "velocity": 7.0,
+      "completed_tasks": 2,
+      "total_tasks": 5,
+      "completion_rate": 0.4
+    },
+    "action_items": []
+  }
+}

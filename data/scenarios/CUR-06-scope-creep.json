@@ -1,0 +1,113 @@
+{
+  "scenario_id": "CUR-06-scope-creep",
+  "intent": "Unplanned tasks injected mid-sprint, depressing completion rate for a 5-person team.",
+  "today": "2026-06-22",
+  "team_size": 5,
+  "team": [
+    "Ava",
+    "Ben",
+    "Carla",
+    "Dmitri",
+    "Elena"
+  ],
+  "sprint": "CUR-06-scope-creep",
+  "sprint_start": "2026-06-15",
+  "sprint_end": "2026-06-29",
+  "tasks": [
+    {
+      "task_id": "CUR-06-scope-creep-T01",
+      "title": "Core feature A",
+      "status": "done",
+      "assignee": "Ava",
+      "story_points": 5.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-20",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-06-scope-creep",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-06-scope-creep-T02",
+      "title": "Core feature B",
+      "status": "done",
+      "assignee": "Ben",
+      "story_points": 5.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-20",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-06-scope-creep",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-06-scope-creep-T03",
+      "title": "Core feature C",
+      "status": "in_progress",
+      "assignee": "Carla",
+      "story_points": 5.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-06-scope-creep",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-06-scope-creep-T04",
+      "title": "Unplanned: urgent client request",
+      "status": "todo",
+      "assignee": "Dmitri",
+      "story_points": 8.0,
+      "created_at": "2026-06-21",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-06-scope-creep",
+      "labels": [
+        "scope-creep"
+      ],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-06-scope-creep-T05",
+      "title": "Unplanned: compliance checkbox",
+      "status": "todo",
+      "assignee": "Elena",
+      "story_points": 5.0,
+      "created_at": "2026-06-21",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-06-scope-creep",
+      "labels": [
+        "scope-creep"
+      ],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-06-scope-creep-T06",
+      "title": "Unplanned: hotfix follow-up",
+      "status": "todo",
+      "assignee": "Ava",
+      "story_points": 3.0,
+      "created_at": "2026-06-21",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-06-scope-creep",
+      "labels": [
+        "scope-creep"
+      ],
+      "source_system": "curated"
+    }
+  ],
+  "meeting_note": "",
+  "ground_truth": {
+    "risky_tasks": [],
+    "expected_kpis": {
+      "velocity": 10.0,
+      "completed_tasks": 2,
+      "total_tasks": 6,
+      "completion_rate": 0.3333
+    },
+    "action_items": []
+  }
+}

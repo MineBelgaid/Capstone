@@ -1,0 +1,126 @@
+{
+  "scenario_id": "CUR-03-bottleneck",
+  "intent": "Bottleneck: several blocked tasks stalling a 5-person team.",
+  "today": "2026-06-22",
+  "team_size": 5,
+  "team": [
+    "Ava",
+    "Ben",
+    "Carla",
+    "Dmitri",
+    "Elena"
+  ],
+  "sprint": "CUR-03-bottleneck",
+  "sprint_start": "2026-06-15",
+  "sprint_end": "2026-06-29",
+  "tasks": [
+    {
+      "task_id": "CUR-03-bottleneck-T01",
+      "title": "DB migration",
+      "status": "blocked",
+      "assignee": "Elena",
+      "story_points": 8.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-03-bottleneck",
+      "labels": [
+        "bug"
+      ],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-03-bottleneck-T02",
+      "title": "Schema review",
+      "status": "blocked",
+      "assignee": "Ben",
+      "story_points": 3.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-03-bottleneck",
+      "labels": [
+        "bug"
+      ],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-03-bottleneck-T03",
+      "title": "Data backfill",
+      "status": "blocked",
+      "assignee": "Carla",
+      "story_points": 5.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-03-bottleneck",
+      "labels": [
+        "bug"
+      ],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-03-bottleneck-T04",
+      "title": "Frontend polish",
+      "status": "in_progress",
+      "assignee": "Ava",
+      "story_points": 3.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-03-bottleneck",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-03-bottleneck-T05",
+      "title": "Docs update",
+      "status": "done",
+      "assignee": "Dmitri",
+      "story_points": 2.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-20",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-03-bottleneck",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-03-bottleneck-T06",
+      "title": "Logging",
+      "status": "todo",
+      "assignee": "Elena",
+      "story_points": 2.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-03-bottleneck",
+      "labels": [],
+      "source_system": "curated"
+    }
+  ],
+  "meeting_note": "",
+  "ground_truth": {
+    "risky_tasks": [
+      {
+        "task_id": "CUR-03-bottleneck-T01",
+        "reason": "blocked"
+      },
+      {
+        "task_id": "CUR-03-bottleneck-T02",
+        "reason": "blocked"
+      },
+      {
+        "task_id": "CUR-03-bottleneck-T03",
+        "reason": "blocked"
+      }
+    ],
+    "expected_kpis": {
+      "velocity": 2.0,
+      "completed_tasks": 1,
+      "total_tasks": 6,
+      "completion_rate": 0.1667
+    },
+    "action_items": []
+  }
+}

@@ -1,0 +1,8 @@
+Issue key,Issue Summary,Issue Status,Assignee,Story Points,Created,Updated,Due,Sprint,Labels
+PROJ-101,Implement login flow,In Progress,Ava,5,2026-06-10,2026-06-20,2026-07-02,Sprint-Demo,backend;auth
+PROJ-102,Write API documentation,To Do,Ben,3,2026-06-11,2026-06-12,2026-07-02,Sprint-Demo,docs
+PROJ-103,Fix flaky payment test,Blocked,Carla,2,2026-06-09,2026-06-14,2026-06-25,Sprint-Demo,bug;backend
+PROJ-104,Design onboarding screens,Done,Dmitri,8,2026-06-08,2026-06-19,2026-06-30,Sprint-Demo,frontend
+PROJ-105,Set up CI pipeline,Done,Ava,3,2026-06-08,2026-06-15,2026-06-22,Sprint-Demo,infra
+PROJ-106,Optimize DB queries,In Progress,Ava,5,2026-06-05,2026-06-09,2026-06-23,Sprint-Demo,backend
+PROJ-107,Add audit logging,To Do,Elena,2,2026-06-12,2026-06-13,2026-06-21,Sprint-Demo,backend

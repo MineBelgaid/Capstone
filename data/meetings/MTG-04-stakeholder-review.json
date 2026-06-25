@@ -1,0 +1,29 @@
+{
+  "scenario_id": "MTG-04-stakeholder-review",
+  "attendees": [
+    "Grace",
+    "Ines",
+    "Jonas",
+    "Kira"
+  ],
+  "meeting_note": "Date: 2026-06-22\nStakeholder review.\nAttendees: Grace, Ines, Jonas, Kira.\n\nStakeholders requested a clearer onboarding and an export feature.\n\nAction items:\n- Ines to draft the onboarding redesign by 2026-06-29.\n- Jonas to scope the CSV export feature by 2026-06-26.\n- Kira to follow up with stakeholders on pricing by 2026-06-30.\n",
+  "ground_truth": {
+    "action_items": [
+      {
+        "description": "Draft the onboarding redesign",
+        "owner": "Ines",
+        "deadline": "2026-06-29"
+      },
+      {
+        "description": "Scope the CSV export feature",
+        "owner": "Jonas",
+        "deadline": "2026-06-26"
+      },
+      {
+        "description": "Follow up with stakeholders on pricing",
+        "owner": "Kira",
+        "deadline": "2026-06-30"
+      }
+    ]
+  }
+}

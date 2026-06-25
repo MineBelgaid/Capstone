@@ -1,0 +1,147 @@
+{
+  "scenarios": 13,
+  "kpi_schema_validity": 1.0,
+  "kpi_numeric_accuracy": 1.0,
+  "risk_precision_mean": 1.0,
+  "risk_recall_mean": 1.0,
+  "max_workflow_seconds": 0.001,
+  "mean_workflow_seconds": 0.0,
+  "pass": {
+    "kpi_schema_validity": true,
+    "kpi_numeric_accuracy": true,
+    "risk_precision": true,
+    "workflow_time": true
+  },
+  "per_scenario": [
+    {
+      "scenario_id": "CUR-01-healthy-small",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 1.0,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "CUR-02-single-blocker",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 1.0,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "CUR-03-bottleneck",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 1.0,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "CUR-04-deadline-slip-minor",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 1.0,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "CUR-05-deadline-slip-severe",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 1.0,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "CUR-06-scope-creep",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 1.0,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "CUR-07-absentee",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 1.0,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "CUR-08-absentee-deadline",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 1.0,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "CUR-09-overloaded-lead",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 1.0,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "CUR-10-large-mixed",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 1.0,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "CUR-11-very-large",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 1.0,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.001,
+      "notes": []
+    },
+    {
+      "scenario_id": "CUR-12-crunch",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 1.0,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    },
+    {
+      "scenario_id": "CUR-13-blocked-scope",
+      "kpi_valid": true,
+      "kpi_numeric_ok": true,
+      "risk_precision": 1.0,
+      "risk_recall": 1.0,
+      "action_item_accuracy": null,
+      "elapsed_s": 0.0,
+      "notes": []
+    }
+  ]
+}

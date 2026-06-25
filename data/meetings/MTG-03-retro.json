@@ -1,0 +1,23 @@
+{
+  "scenario_id": "MTG-03-retro",
+  "attendees": [
+    "Ava",
+    "Ben",
+    "Hassan"
+  ],
+  "meeting_note": "Date: 2026-06-22\nSprint retrospective.\nAttendees: Ava, Ben, Hassan.\n\nWhat went well: faster code review. What to improve: flaky CI.\n\n- Hassan will stabilize the flaky test suite by 2026-06-27.\n- Ava will document the new review checklist by 2026-06-25.\n- Ben mentioned morale is good; no action needed there.\n",
+  "ground_truth": {
+    "action_items": [
+      {
+        "description": "Stabilize the flaky test suite",
+        "owner": "Hassan",
+        "deadline": "2026-06-27"
+      },
+      {
+        "description": "Document the new review checklist",
+        "owner": "Ava",
+        "deadline": "2026-06-25"
+      }
+    ]
+  }
+}

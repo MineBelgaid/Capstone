@@ -1,0 +1,34 @@
+{
+  "scenario_id": "MTG-02-sprint-planning",
+  "attendees": [
+    "Dmitri",
+    "Elena",
+    "Farid",
+    "Grace"
+  ],
+  "meeting_note": "Date: 2026-06-22\nSprint planning for Sprint 14.\nAttendees: Dmitri, Elena, Farid, Grace.\n\nDecisions: prioritize the search backend; defer the admin dashboard.\n\nAction items:\n- Dmitri to break down the search backend into subtasks by 2026-06-23.\n- Elena to set up the staging environment by 2026-06-25.\n- Farid to review the API design doc by 2026-06-24.\n- Grace to schedule the stakeholder review by 2026-06-26.\n",
+  "ground_truth": {
+    "action_items": [
+      {
+        "description": "Break down the search backend into subtasks",
+        "owner": "Dmitri",
+        "deadline": "2026-06-23"
+      },
+      {
+        "description": "Set up the staging environment",
+        "owner": "Elena",
+        "deadline": "2026-06-25"
+      },
+      {
+        "description": "Review the API design doc",
+        "owner": "Farid",
+        "deadline": "2026-06-24"
+      },
+      {
+        "description": "Schedule the stakeholder review",
+        "owner": "Grace",
+        "deadline": "2026-06-26"
+      }
+    ]
+  }
+}

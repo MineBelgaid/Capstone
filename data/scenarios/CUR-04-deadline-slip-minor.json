@@ -1,0 +1,102 @@
+{
+  "scenario_id": "CUR-04-deadline-slip-minor",
+  "intent": "A couple of tasks due in 1-2 days and not done -- early-warning deadline risk.",
+  "today": "2026-06-22",
+  "team_size": 4,
+  "team": [
+    "Ava",
+    "Ben",
+    "Carla",
+    "Dmitri"
+  ],
+  "sprint": "CUR-04-deadline-slip-minor",
+  "sprint_start": "2026-06-15",
+  "sprint_end": "2026-06-29",
+  "tasks": [
+    {
+      "task_id": "CUR-04-deadline-slip-minor-T01",
+      "title": "Settings page",
+      "status": "done",
+      "assignee": "Ava",
+      "story_points": 3.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-20",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-04-deadline-slip-minor",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-04-deadline-slip-minor-T02",
+      "title": "Profile API",
+      "status": "in_progress",
+      "assignee": "Ben",
+      "story_points": 5.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-04-deadline-slip-minor",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-04-deadline-slip-minor-T03",
+      "title": "Export feature",
+      "status": "todo",
+      "assignee": "Carla",
+      "story_points": 5.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-23",
+      "sprint": "CUR-04-deadline-slip-minor",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-04-deadline-slip-minor-T04",
+      "title": "Email templates",
+      "status": "in_progress",
+      "assignee": "Dmitri",
+      "story_points": 3.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-24",
+      "sprint": "CUR-04-deadline-slip-minor",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-04-deadline-slip-minor-T05",
+      "title": "Analytics wiring",
+      "status": "todo",
+      "assignee": "Ava",
+      "story_points": 2.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-04-deadline-slip-minor",
+      "labels": [],
+      "source_system": "curated"
+    }
+  ],
+  "meeting_note": "",
+  "ground_truth": {
+    "risky_tasks": [
+      {
+        "task_id": "CUR-04-deadline-slip-minor-T03",
+        "reason": "due_soon"
+      },
+      {
+        "task_id": "CUR-04-deadline-slip-minor-T04",
+        "reason": "due_soon"
+      }
+    ],
+    "expected_kpis": {
+      "velocity": 3.0,
+      "completed_tasks": 1,
+      "total_tasks": 5,
+      "completion_rate": 0.2
+    },
+    "action_items": []
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "scenario_id": "MTG-05-postmortem",
+  "attendees": [
+    "Ben",
+    "Elena",
+    "Leo"
+  ],
+  "meeting_note": "Date: 2026-06-22\nIncident postmortem: API outage.\nAttendees: Ben, Elena, Leo.\n\nRoot cause: an unbounded query under load. Blameless review.\n\n- Leo will add a query timeout and index by 2026-06-24.\n- Elena will add load-test coverage for the endpoint by 2026-06-28.\n- Ben will write the public incident summary by 2026-06-23.\n",
+  "ground_truth": {
+    "action_items": [
+      {
+        "description": "Add a query timeout and index",
+        "owner": "Leo",
+        "deadline": "2026-06-24"
+      },
+      {
+        "description": "Add load-test coverage for the endpoint",
+        "owner": "Elena",
+        "deadline": "2026-06-28"
+      },
+      {
+        "description": "Write the public incident summary",
+        "owner": "Ben",
+        "deadline": "2026-06-23"
+      }
+    ]
+  }
+}

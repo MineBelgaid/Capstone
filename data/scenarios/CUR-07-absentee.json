@@ -1,0 +1,121 @@
+{
+  "scenario_id": "CUR-07-absentee",
+  "intent": "A developer goes inactive: their in-progress tasks all go stale (no recent activity).",
+  "today": "2026-06-22",
+  "team_size": 6,
+  "team": [
+    "Ava",
+    "Ben",
+    "Carla",
+    "Dmitri",
+    "Elena",
+    "Farid"
+  ],
+  "sprint": "CUR-07-absentee",
+  "sprint_start": "2026-06-15",
+  "sprint_end": "2026-06-29",
+  "tasks": [
+    {
+      "task_id": "CUR-07-absentee-T01",
+      "title": "Notifications service",
+      "status": "in_progress",
+      "assignee": "Farid",
+      "story_points": 8.0,
+      "created_at": "2026-06-09",
+      "updated_at": "2026-06-14",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-07-absentee",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-07-absentee-T02",
+      "title": "Webhook handler",
+      "status": "in_progress",
+      "assignee": "Farid",
+      "story_points": 5.0,
+      "created_at": "2026-06-10",
+      "updated_at": "2026-06-15",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-07-absentee",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-07-absentee-T03",
+      "title": "Retry logic",
+      "status": "in_progress",
+      "assignee": "Farid",
+      "story_points": 3.0,
+      "created_at": "2026-06-08",
+      "updated_at": "2026-06-13",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-07-absentee",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-07-absentee-T04",
+      "title": "Frontend",
+      "status": "in_progress",
+      "assignee": "Ava",
+      "story_points": 3.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-07-absentee",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-07-absentee-T05",
+      "title": "Infra",
+      "status": "done",
+      "assignee": "Ben",
+      "story_points": 3.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-20",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-07-absentee",
+      "labels": [],
+      "source_system": "curated"
+    },
+    {
+      "task_id": "CUR-07-absentee-T06",
+      "title": "QA pass",
+      "status": "todo",
+      "assignee": "Carla",
+      "story_points": 2.0,
+      "created_at": "2026-06-15",
+      "updated_at": "2026-06-21",
+      "due_date": "2026-06-29",
+      "sprint": "CUR-07-absentee",
+      "labels": [],
+      "source_system": "curated"
+    }
+  ],
+  "meeting_note": "",
+  "ground_truth": {
+    "risky_tasks": [
+      {
+        "task_id": "CUR-07-absentee-T01",
+        "reason": "stale"
+      },
+      {
+        "task_id": "CUR-07-absentee-T02",
+        "reason": "stale"
+      },
+      {
+        "task_id": "CUR-07-absentee-T03",
+        "reason": "stale"
+      }
+    ],
+    "expected_kpis": {
+      "velocity": 3.0,
+      "completed_tasks": 1,
+      "total_tasks": 6,
+      "completion_rate": 0.1667
+    },
+    "action_items": []
+  }
+}
