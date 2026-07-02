@@ -69,6 +69,58 @@ def compute_kpis(
     )
 
 
+def open_points_by_member(tasks: list[Task]) -> dict[str, float]:
+    """Open (not done/cancelled) story points per member. Deterministic."""
+    out: dict[str, float] = defaultdict(float)
+    for t in tasks:
+        if t.status in {TaskStatus.DONE, TaskStatus.CANCELLED}:
+            continue
+        out[t.assignee or "Unassigned"] += t.story_points or 0.0
+    return dict(out)
+
+
+def analyze_workload_balance(tasks: list[Task]) -> dict:
+    """Deterministic workload analysis feeding the rebalancing proposal.
+
+    Identifies who is overloaded (open points well above the team mean), who has
+    spare capacity, and which open tasks are candidates to move (owned by an
+    overloaded member, or unassigned). The LLM proposes moves ONLY from this
+    candidate set -- so proposals stay grounded in real, movable work."""
+    open_pts = open_points_by_member(tasks)
+    open_cnt: dict[str, int] = defaultdict(int)
+    for t in tasks:
+        if t.status in {TaskStatus.DONE, TaskStatus.CANCELLED}:
+            continue
+        open_cnt[t.assignee or "Unassigned"] += 1
+
+    real = {m: p for m, p in open_pts.items() if m != "Unassigned"}
+    mean = (sum(real.values()) / len(real)) if real else 0.0
+    overloaded = sorted(
+        [m for m, p in real.items() if mean > 0 and p > OVERLOAD_POINT_RATIO * mean],
+        key=lambda m: -real[m],
+    )
+    underloaded = sorted([m for m, p in real.items() if p < mean], key=lambda m: real[m])
+
+    movable: list[dict] = []
+    for t in tasks:
+        if t.status in {TaskStatus.DONE, TaskStatus.CANCELLED}:
+            continue
+        owner = t.assignee or "Unassigned"
+        if owner in overloaded or owner == "Unassigned":
+            movable.append({
+                "task_id": t.task_id, "title": t.title, "owner": owner,
+                "points": float(t.story_points or 0.0), "status": t.status.value,
+            })
+    return {
+        "mean_open_points": round(mean, 2),
+        "load": {m: {"open_points": round(open_pts[m], 2), "open_tasks": open_cnt[m]}
+                 for m in sorted(open_pts)},
+        "overloaded": overloaded,
+        "underloaded": underloaded,
+        "movable_tasks": movable,
+    }
+
+
 def detect_risks(tasks: list[Task], today: _dt.date | None = None) -> list[RiskAlert]:
     """Flag blocked tasks, stale/at-deadline tasks, and overloaded members."""
     today = today or _dt.date.today()

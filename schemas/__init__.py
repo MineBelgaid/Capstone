@@ -3,6 +3,8 @@
 from .models import (
     ActionItem,
     MeetingSummary,
+    ReassignmentSuggestion,
+    RebalanceProposal,
     RiskAlert,
     RiskSeverity,
     SprintKPIReport,
@@ -15,6 +17,8 @@ from .models import (
 __all__ = [
     "ActionItem",
     "MeetingSummary",
+    "ReassignmentSuggestion",
+    "RebalanceProposal",
     "RiskAlert",
     "RiskSeverity",
     "SprintKPIReport",

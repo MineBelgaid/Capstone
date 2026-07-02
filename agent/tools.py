@@ -19,11 +19,11 @@ from pathlib import Path
 
 from langchain_core.tools import tool
 
-from agent.analytics import compute_kpis, detect_risks
+from agent.analytics import analyze_workload_balance, compute_kpis, detect_risks
 from agent.llm import get_chat_model
 from agent.validation import generate_structured
 from config import settings
-from schemas import MeetingSummary, Task
+from schemas import MeetingSummary, ReassignmentSuggestion, RebalanceProposal, Task
 
 
 # --------------------------------------------------------------------------- #
@@ -130,6 +130,74 @@ def detect_project_risks(_: str = "") -> str:
 
 
 # --------------------------------------------------------------------------- #
+# Workload rebalancing proposal  (deterministic analysis + LLM proposal +
+# deterministic validation). Proposes moves only -- applying is human-gated.
+# --------------------------------------------------------------------------- #
+@tool
+def propose_rebalance(_: str = "") -> str:
+    """Propose workload rebalancing: move open tasks from overloaded members (or
+    unassigned) to teammates with spare capacity. Deterministic analysis chooses
+    the movable candidates; the LLM proposes specific moves with reasons; every
+    suggestion is then validated against the real tasks so it can't invent tasks,
+    owners, or points. This only PROPOSES -- no assignment is applied without human
+    approval. Returns JSON matching RebalanceProposal."""
+    bal = analyze_workload_balance(_CTX.tasks)
+    has_unassigned = any(m["owner"] == "Unassigned" for m in bal["movable_tasks"])
+    if not bal["overloaded"] and not has_unassigned:
+        return RebalanceProposal(
+            summary="Workload is balanced across the team; no reassignments recommended.",
+            suggestions=[],
+        ).model_dump_json()
+
+    team = sorted({t.assignee for t in _CTX.tasks if t.assignee})
+    movable = bal["movable_tasks"]
+    receivers = bal["underloaded"] or team
+    user_prompt = (
+        f"Rebalance the sprint workload. Team mean open load is "
+        f"{bal['mean_open_points']} points.\n"
+        f"Overloaded members: {bal['overloaded'] or 'none'}.\n"
+        f"Members with spare capacity (prefer these as new owners): {receivers}.\n\n"
+        "Movable open tasks (you may ONLY reassign these, referenced by task_id):\n"
+        + "\n".join(
+            f"- {m['task_id']} '{m['title']}' owner={m['owner']} "
+            f"points={m['points']} status={m['status']}" for m in movable
+        )
+        + "\n\nPropose a small, sensible set of reassignments that move work off "
+        "overloaded members (and place unassigned tasks) onto members with spare "
+        "capacity, without overloading the receivers. For each move give: task_id, "
+        "task_title, from_member, to_member (a real teammate with capacity), points, "
+        "and a one-line reason. Also give a short summary. Use ONLY the listed "
+        "task_ids and real team members."
+    )
+    proposal = generate_structured(
+        chat_model=get_chat_model(),
+        schema=RebalanceProposal,
+        system_prompt="You are a resourcing assistant that balances team workload fairly.",
+        user_prompt=user_prompt,
+    )
+
+    # Deterministic guardrail (anti-hallucination): keep only suggestions that
+    # reference a real movable task and a real teammate, and override
+    # from_member/points from ground truth so the model can't misstate them.
+    movable_by_id = {m["task_id"]: m for m in movable}
+    valid_members = set(team)
+    clean: list[ReassignmentSuggestion] = []
+    seen: set[str] = set()
+    for s in proposal.suggestions:
+        src = movable_by_id.get(s.task_id)
+        if src is None or s.task_id in seen:
+            continue
+        if s.to_member not in valid_members or s.to_member == src["owner"]:
+            continue
+        seen.add(s.task_id)
+        clean.append(ReassignmentSuggestion(
+            task_id=s.task_id, task_title=src["title"], from_member=src["owner"],
+            to_member=s.to_member, points=src["points"], reason=s.reason,
+        ))
+    return RebalanceProposal(summary=proposal.summary, suggestions=clean).model_dump_json()
+
+
+# --------------------------------------------------------------------------- #
 # External action -- HUMAN-APPROVAL GATED
 # --------------------------------------------------------------------------- #
 @tool
@@ -156,5 +224,6 @@ ALL_TOOLS = [
     summarize_meeting,
     compute_sprint_kpis,
     detect_project_risks,
+    propose_rebalance,
     export_report,
 ]

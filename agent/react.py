@@ -25,6 +25,7 @@ from agent.llm import get_chat_model
 from agent.tools import (
     compute_sprint_kpis,
     detect_project_risks,
+    propose_rebalance,
     retrieve_context,
     summarize_meeting,
 )
@@ -37,6 +38,7 @@ _TOOL_REGISTRY: dict[str, Any] = {
     "summarize_meeting": summarize_meeting,
     "compute_sprint_kpis": compute_sprint_kpis,
     "detect_project_risks": detect_project_risks,
+    "propose_rebalance": propose_rebalance,
 }
 
 ToolName = Literal[
@@ -44,6 +46,7 @@ ToolName = Literal[
     "summarize_meeting",
     "compute_sprint_kpis",
     "detect_project_risks",
+    "propose_rebalance",
     "final_answer",
 ]
 
@@ -58,6 +61,30 @@ class ReActStep(BaseModel):
     tool_input: str = Field(
         default="",
         description="Input for the tool; for 'final_answer' this is the answer text",
+    )
+
+
+class ReflectionResult(BaseModel):
+    """Self-critique of a draft answer against the tool observations.
+
+    The whole point of the reflection loop: numbers and risks come from the
+    deterministic tools, so any claim in the narrative that the observations do
+    NOT support is a hallucination. The critic lists those and rewrites the
+    answer using only what the observations actually say."""
+
+    model_config = ConfigDict(extra="forbid", str_strip_whitespace=True)
+
+    grounded: bool = Field(
+        ..., description="True if every claim in the draft is supported by the observations"
+    )
+    issues: list[str] = Field(
+        default_factory=list,
+        description="Each unsupported or contradicted claim found (empty if grounded)",
+    )
+    revised_answer: str = Field(
+        ..., min_length=1,
+        description="The corrected answer grounded only in the observations; equals "
+                    "the draft if it was already fully grounded",
     )
 
 
@@ -78,6 +105,7 @@ _TOOL_HELP = (
     "- summarize_meeting(): structured summary + action items of loaded notes.\n"
     "- compute_sprint_kpis(): exact velocity / completion / workload.\n"
     "- detect_project_risks(): exact blocked / overdue / stale / overload list.\n"
+    "- propose_rebalance(): suggest moving tasks off overloaded members (proposal only).\n"
     "- final_answer(answer): finish and return the answer."
 )
 
@@ -108,6 +136,53 @@ def _reason_prompt(query: str, scratchpad: list[dict]) -> str:
         lines.append("")
     lines.append("Decide the next step as a single JSON object.")
     return "\n".join(lines)
+
+
+# --------------------------------------------------------------------------- #
+# Reflection / self-critique  --  anti-hallucination pass over the final answer
+# --------------------------------------------------------------------------- #
+REFLECT_SYSTEM = (
+    "You are a strict fact-checker for a project-coordination assistant. You are "
+    "given the tool OBSERVATIONS collected during a task (these are exact, "
+    "authoritative — KPIs and risks are computed deterministically) and a DRAFT "
+    "answer written from them. Find every claim in the draft that the observations "
+    "do not support or contradict — especially any number, count, name, status, or "
+    "risk. Do not add new information. Rewrite the answer so it states only what the "
+    "observations support; keep it concise. If the draft is already fully grounded, "
+    "return it unchanged with grounded=true and no issues."
+)
+
+
+def _reflection_prompt(query: str, scratchpad: list[dict], draft: str) -> str:
+    obs_lines = []
+    for i, s in enumerate(scratchpad, 1):
+        obs = s["observation"]
+        if len(obs) > 1500:
+            obs = obs[:1500] + " …[truncated]"
+        obs_lines.append(f"[{i}] {s['tool']}({s['tool_input']!r}) -> {obs}")
+    observations = "\n".join(obs_lines) if obs_lines else "(no tool observations)"
+    return (
+        f"User request: {query}\n\n"
+        f"OBSERVATIONS (authoritative):\n{observations}\n\n"
+        f"DRAFT answer to check:\n{draft}\n\n"
+        "Return the JSON object: grounded, issues, revised_answer."
+    )
+
+
+def reflect_on_answer(query: str, scratchpad: list[dict], draft: str) -> ReflectionResult:
+    """Critique ``draft`` against the observations; return a grounded revision.
+
+    On any failure (model/validation), degrade gracefully: treat the draft as the
+    answer rather than blocking the response."""
+    try:
+        return generate_structured(
+            chat_model=get_chat_model(),
+            schema=ReflectionResult,
+            system_prompt=REFLECT_SYSTEM,
+            user_prompt=_reflection_prompt(query, scratchpad, draft),
+        )
+    except Exception:  # noqa: BLE001 - never let reflection break the run
+        return ReflectionResult(grounded=True, issues=[], revised_answer=draft)
 
 
 # --------------------------------------------------------------------------- #
@@ -190,4 +265,61 @@ def run_custom_react(query: str) -> dict:
         {"query": query, "scratchpad": [], "steps": 0},
         config={"recursion_limit": settings.agent.max_react_steps * 3 + 5},
     )
-    return {"answer": final.get("answer", ""), "scratchpad": final.get("scratchpad", [])}
+    answer = final.get("answer", "")
+    scratchpad = final.get("scratchpad", [])
+
+    reflection = None
+    if settings.agent.reflection_enabled and scratchpad and answer:
+        r = reflect_on_answer(query, scratchpad, answer)
+        reflection = {"grounded": r.grounded, "issues": r.issues, "draft": answer}
+        answer = r.revised_answer
+
+    return {"answer": answer, "scratchpad": scratchpad, "reflection": reflection}
+
+
+def stream_custom_react(query: str):
+    """Yield each reason->act->observe step as it completes, then a final result.
+
+    Same loop semantics as ``run_custom_react`` (it reuses ``_reason_node`` and
+    ``dispatch_tool``) but surfaces every intermediate step so a UI can show the
+    agent's reasoning live. Assumes the per-run ``AgentContext`` is already set.
+
+    Yields dicts:
+      * ``{"type": "reason", "n", "thought", "tool", "tool_input"}`` -- the model
+        decided the next step (emitted before the tool runs).
+      * ``{"type": "observe", "n", "observation"}`` -- the tool's result.
+      * ``{"type": "final", "thought", "answer"}`` -- the loop finished.
+    """
+    scratchpad: list[dict] = []
+    steps = 0
+    draft = None
+    thought = "(step limit reached)"
+    while steps < settings.agent.max_react_steps:
+        proposed = _reason_node({"query": query, "scratchpad": scratchpad})["proposed"]
+        n = steps + 1
+        if proposed["tool"] == "final_answer":
+            draft = proposed.get("tool_input", "")
+            thought = proposed["thought"]
+            break
+        yield {"type": "reason", "n": n, "thought": proposed["thought"],
+               "tool": proposed["tool"], "tool_input": proposed["tool_input"]}
+        observation = dispatch_tool(proposed["tool"], proposed["tool_input"])
+        scratchpad.append({
+            "thought": proposed["thought"], "tool": proposed["tool"],
+            "tool_input": proposed["tool_input"], "observation": observation,
+        })
+        steps += 1
+        yield {"type": "observe", "n": n, "observation": observation}
+
+    if draft is None:  # hit the step cap without an explicit answer
+        draft = "Collected findings:\n" + "\n".join(s["observation"] for s in scratchpad)
+
+    # Reflection / self-critique pass before finalizing.
+    answer = draft
+    if settings.agent.reflection_enabled and scratchpad and draft:
+        r = reflect_on_answer(query, scratchpad, draft)
+        yield {"type": "reflect", "grounded": r.grounded, "issues": r.issues,
+               "draft": draft}
+        answer = r.revised_answer
+
+    yield {"type": "final", "thought": thought, "answer": answer}

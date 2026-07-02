@@ -119,6 +119,29 @@ class RiskAlert(BaseModel):
 
 
 # --------------------------------------------------------------------------- #
+# Workload rebalancing proposal (human-approval gated; proposes, never applies)
+# --------------------------------------------------------------------------- #
+class ReassignmentSuggestion(BaseModel):
+    """A single proposed move of one task to a member with spare capacity."""
+
+    model_config = _STRICT
+
+    task_id: str = Field(..., min_length=1)
+    task_title: str = Field(..., min_length=1)
+    from_member: str = Field(..., min_length=1, description="Current owner (or 'Unassigned')")
+    to_member: str = Field(..., min_length=1, description="Proposed new owner with capacity")
+    points: NonNegativeFloat = Field(..., description="Story points moved")
+    reason: str = Field(..., min_length=5, description="Why this move helps balance load")
+
+
+class RebalanceProposal(BaseModel):
+    model_config = _STRICT
+
+    summary: str = Field(..., min_length=10, description="One-paragraph rationale")
+    suggestions: list[ReassignmentSuggestion] = Field(default_factory=list)
+
+
+# --------------------------------------------------------------------------- #
 # KPI / sprint analytics output
 # --------------------------------------------------------------------------- #
 class WorkloadEntry(BaseModel):

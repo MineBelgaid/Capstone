@@ -83,6 +83,11 @@ class AgentConfig:
     #   "prebuilt" -> LangGraph create_react_agent native tool calling
     #                 (best with Claude for the final demo)
     react_mode: str = os.getenv("REACT_MODE", "custom").lower()
+    # Reflection / self-critique: after the loop produces a final answer, the
+    # model re-checks every claim against the exact tool observations and revises
+    # any unsupported/contradicted statement. Reduces hallucination in the
+    # narrative (numbers/risks stay tied to the deterministic tool outputs).
+    reflection_enabled: bool = os.getenv("REACT_REFLECTION", "true").lower() == "true"
 
 
 @dataclass(frozen=True)
